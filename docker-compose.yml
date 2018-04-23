@@ -5,7 +5,7 @@ services:
     build: .
     command: >
       gunicorn -b 0.0.0.0:8000
-      --acces-logfile -
+      --access-logfile -
       --reload
       "web_app.app:create_app()"
     environment:
