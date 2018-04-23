@@ -4,6 +4,10 @@ def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('setting.py')
 
+    @app.route('/nitnot')
+    def nitnot():
+        return render_template('index.html', TITTLE='nitnot')
+
     @app.route('/')
     def index():
         return render_template('index.html', TITTLE='nitnot')
