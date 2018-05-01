@@ -1,20 +1,13 @@
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, Integer, String
+
+from web_app.models import db, Page
 
 
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('setting.py')
 
-    db = SQLAlchemy(app)
-    class Page(db.Model):
-        __tablename_='page'
-        id = Column(Integer, primary_key=True)
-        contents = Column(String)
-
-
-    db.create_all()
+    db.init_app(app)
 
 
     @app.route('/nitnot')
